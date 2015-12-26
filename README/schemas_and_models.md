@@ -136,7 +136,7 @@ That's it, we're ready to start creating entries in our database.
 <!-- navigation -->
 [home]: ../README.md
 [back]: connecting.md
-[next]: #
+[next]: crud_1.md
 
 <!-- links -->
 [1]: https://en.wikipedia.org/wiki/Relational_database

@@ -7,6 +7,7 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 * [Setup][l1]
 * [Connecting to the database][l2]
 * [Schemas and models][l3]
+* [CRUD I: Creating and Reading][l4]
 
 ---
 [:arrow_backward:][back] ║ [:house:][home] ║ [:arrow_forward:][next]
@@ -28,3 +29,4 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 [l1]: README/setup.md
 [l2]: README/connecting.md
 [l3]: README/schemas_and_models.md
+[l4]: README/crud_1.md

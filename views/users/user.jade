@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  h1= title
+  h2= user.name
+  p #[strong Email:] #{user.email}
+  p #[strong Created on:] #{user.createdOn}
+  p #[strong Modified on:] #{user.modifiedOn}
