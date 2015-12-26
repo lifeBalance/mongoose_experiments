@@ -5,6 +5,7 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 
 ## Contents
 * [Setup][l1]
+* [Connecting to the database][l2]
 
 
 ---
@@ -25,3 +26,4 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 
 <!-- menu -->
 [l1]: README/setup.md
+[l2]: README/connecting.md

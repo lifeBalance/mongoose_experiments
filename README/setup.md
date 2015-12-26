@@ -114,7 +114,7 @@ $ npm i mongoose -S
 <!-- navigation -->
 [home]: ../README.md
 [back]: ../README.md
-[next]: #
+[next]: connecting.md
 
 <!-- links -->
 [1]: https://www.npmjs.com/package/express-generator
