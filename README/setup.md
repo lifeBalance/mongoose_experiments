@@ -66,6 +66,7 @@ Before starting installing the modules, probably it's a good idea ignoring the `
 ```bash
 $ touch .gitignore
 $ echo 'node_modules/' > .gitignore
+$ echo 'npm-debug.log' > .gitignore
 ```
 
 ## Installing dependencies
