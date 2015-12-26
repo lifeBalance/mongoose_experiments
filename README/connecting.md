@@ -170,7 +170,7 @@ Successfully connected to mongodb://localhost/experiments
 <!-- navigation -->
 [home]: ../README.md
 [back]: setup.md
-[next]: #
+[next]: schemas_and_models.md
 
 <!-- links -->
 [1]: http://mongoosejs.com/

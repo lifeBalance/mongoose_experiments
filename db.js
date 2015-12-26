@@ -29,3 +29,7 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
+
+// Bring the models
+var User = require('./models/user');
+var Project = require('./models/project');
