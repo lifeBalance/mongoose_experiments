@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  h1= title
+
+  include ../mixins/form
+  + form(user.name, user.email, btnMsg)(action='/users/#{user.id}?_method=PUT')

@@ -258,7 +258,7 @@ Now we can use moment.js in any of our views, since the `app.locals` object and 
 <!-- navigation -->
 [home]: ../README.md
 [back]: schemas_and_models.md
-[next]: #
+[next]: crud_2.md
 
 <!-- links -->
 [1]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete

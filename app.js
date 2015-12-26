@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./db');
+var methodOverride = require('method-override');
 
 // Route handlers
 var users = require('./routes/users');
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', function (req, res) {
@@ -33,6 +35,9 @@ app.get('/users', users.index);
 app.get('/users/new', users.new);
 app.get('/users/:id', users.show);
 app.post('/users', users.create);
+app.get('/users/:id/edit', users.edit);
+app.put('/users/:id', users.update);
+app.delete('/users/:id', users.destroy);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

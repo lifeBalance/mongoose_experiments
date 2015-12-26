@@ -1,0 +1,9 @@
+mixin form(name, email)
+  form(method="POST")&attributes(attributes)
+    label(for="name") Name
+    input(name="name", type="text", value="#{name}")
+    br
+    label(for="email") Email
+    input(name="email", type="text", value="#{email}")
+    br
+    button(type="submit")= btnMsg

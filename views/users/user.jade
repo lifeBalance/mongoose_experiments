@@ -6,3 +6,8 @@ block content
   p #[strong Email:] #{user.email}
   p #[strong Created on:] #{user.createdOn}
   p #[strong Modified on:] #{user.modifiedOn}
+
+  p: a(href="/users/#{user.id}/edit") Modify Profile
+
+  form(method="POST", action="/users/#{user.id}?_method=DELETE")
+    button(type="submit") Delete User

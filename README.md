@@ -8,6 +8,7 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 * [Connecting to the database][l2]
 * [Schemas and models][l3]
 * [CRUD I: Creating and Reading][l4]
+* [CRUD II: Updating and Deleting][l5]
 
 ---
 [:arrow_backward:][back] ║ [:house:][home] ║ [:arrow_forward:][next]
@@ -30,3 +31,4 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 [l2]: README/connecting.md
 [l3]: README/schemas_and_models.md
 [l4]: README/crud_1.md
+[l5]: README/crud_2.md
