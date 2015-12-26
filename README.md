@@ -3,6 +3,18 @@ The **MongoDB Node.js driver** is the officially supported [Node.js][0] driver f
 
 This repo is an [Express.js][5] project for experimenting with **Mongoose**, the most popular **ODM** (Object Document Mapper/Modeler) for modeling MongoDB databases in Node.js.
 
+## Contents
+* [Setup][l1]
+
+
+---
+[:arrow_backward:][back] ║ [:house:][home] ║ [:arrow_forward:][next]
+
+<!-- navigation -->
+[home]: #
+[back]: #
+[next]: README/setup.md
+
 <!-- links -->
 [0]: https://nodejs.org/en/
 [1]: https://www.mongodb.org/
@@ -10,3 +22,6 @@ This repo is an [Express.js][5] project for experimenting with **Mongoose**, the
 [3]: https://github.com/mongodb/node-mongodb-native
 [4]: http://mongoosejs.com/
 [5]: http://expressjs.com/en/index.html
+
+<!-- menu -->
+[l1]: README/setup.md
