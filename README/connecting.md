@@ -2,15 +2,18 @@
 Assuming we have required the [Mongoose][1] package and assigned it to a variable named `mongoose`, we'll have a Mongoose instance under this identifier. Using this variable we can use two methods available in the Mongoose instance for connecting to our [MongoDB][2] database:
 
 1. `mongoose.connect`, used for creating a single **default connection**.
-2. `mongoose.createConnection`, for creating multiple connections.
+2. `mongoose.createConnection`, for creating **multiple connections**.
 
-## Creating a default connection
+## Creating a single connection
 The easiest and fastest way to connect to mongo is using the `mongoose.connect` method, like this:
 
 ```js
 mongoose.connect('mongodb://localhost/experiments');
 ```
 
+This way we are creating a single connection to MongoDB, which we'll always have available in `mongoose.connection`.
+
+### The connection string
 In the above method call we are passing just one argument, a **string** containing a special URI. Let's pick it apart:
 
 * It starts with the required `mongodb://` prefix.
@@ -19,7 +22,6 @@ In the above method call we are passing just one argument, a **string** containi
 
 In other words, the line above will connect our app to a MongoDB database named `experiments`, running at localhost on the default port (`27017`).
 
-### The connection string
 The format of the **connection string** is specified in the [MongoDB documentation][3]. That part of the docs describes the URI format for defining connections between applications and MongoDB instances.
 
 The main components of a connection string are:
@@ -67,6 +69,18 @@ var dbOptions = {
 mongoose.connect(dbUri, dbOptions);
 ```
 
+### Naming the single connection
+Even though the `connect` method only creates a **single connection** which is always available in `mongoose.connection`, it's a good idea to assign it to a variable. This way we'll have a **named connection** which is easier to manipulate. For example, we can use the name to close the connection:
+```js
+var defConn = mongoose.connection;
+
+defConn.close(function () {
+  console.log('Mongoose admin connection closed!');
+});
+```
+
+Apart from closing a connection, there are a lot of things we can do with it, such as attach event listeners, and more. In all these cases, referring to the connection as for example `defConn` is less verbose than having to use `mongoose.connection`.
+
 ## Creating multiple connections
 The default connection is enough if we only need to connect to one database. But for those situations when we're gonna be connecting to several databases, or even one database using different users with different permissions, we need to use the `createConnection` method.
 
@@ -87,21 +101,14 @@ var adminConn = mongoose.createConnection(dbUri, dbAdminOptions);
 var userConn = mongoose.createConnection(dbUri, dbUserOptions);
 ```
 
+As you can see, the `createConnection` method returns a **connection object**, so we can name the connections as we create them.
+
 ### Closing connections
 To close a connection we'll use the `close` method on the `connection` object. This method takes an **optional callback** function, useful for logging a message about the closing:
 
 ```js
-mongoose.connection.close(function () {
-  console.log('Mongoose default connection closed!');
-});
-```
-
-Even when we only have a default connection, it's a good idea assign it to a variable for easier manipulation. This way we'll have a named connection which we'll close using its name:
-```js
-var defConn = mongoose.connection;
-
-defConn.close(function () {
-  console.log('Mongoose admin connection closed!');
+adminConn.close(function () {
+  console.log('Mongoose Administrator connection closed!');
 });
 ```
 
@@ -111,8 +118,10 @@ It's considered a best practice to open the connection when the application star
 To do that we can use an event listener on the `'SIGINT'` event, and close our connection in a callback. This is how we would do it for an unnamed default connection:
 
 ```js
+var conn = mongoose.connection;
+
 process.on('SIGINT', function() {
-  mongoose.connection.close(function () {
+  conn.close(function () {
     console.log('Mongoose disconnected through app termination');
     process.exit(0);
   });
@@ -122,7 +131,7 @@ process.on('SIGINT', function() {
 ## Connection events
 Each connection is an instance of the `Connection` class, and this class inherit from `EventEmitter`. This means that connections emit events, and we can set event listeners to check for them. Check the [mongoose docs][5] for a full list of them.
 
-These are some of the connection events we can listen for:
+These are some of the **connection events** we can listen for:
 
 Event          | Emitted when
 ---------------|--------------
